@@ -1,0 +1,65 @@
+[MASTER]
+# Specify the Python version to use for linting
+python-version=3.8
+
+# Path to the Python source code
+# source-encoding=UTF-8
+
+# List of directories to search for source files.
+# For example, set this to the "src" directory if you have one.
+# init-hook=
+
+[MESSAGES CONTROL]
+# Disable specific messages.
+# This allows you to ignore certain types of warnings.
+disable=C0114,C0115,C0116  # Disable missing module/class/function docstrings
+
+[REPORTS]
+# Output format for the report
+output-format=text
+
+# Show a full report of the linting results
+# Create a file with the linting results
+reports=no  # no full report, only errors or stats
+
+[LOGGING]
+# Logging levels to apply (could be changed as per your project needs)
+logging-modules=logging
+
+[DESIGN]
+# Maximum number of arguments for a function or method
+max-args=5
+
+# Maximum number of local variables in a function
+max-locals=15
+
+# Maximum number of return statements for a function
+max-returns=6
+
+# Maximum number of branches (if, for, while) allowed in a function
+max-branches=12
+
+[FORMAT]
+# Maximum line length allowed
+max-line-length=79
+
+# Indentation size (4 spaces is typical in Python)
+indent-string='    '
+
+[TYPECHECK]
+# Enable or disable type checking (for type annotations)
+# It's helpful for checking if you have properly annotated your types
+# Enable this if you're using type hints and want to check them with pylint.
+ignored-modules=numpy,scipy  # For ignoring specific third-party modules like NumPy
+# Note: Use this if you're relying on any specific module being ignored.
+
+[SIMILARITIES]
+# Maximum number of lines in a block to be considered similar
+min-similarity-lines=4
+
+[EXAMPLES]
+# Enable or disable checking of example code
+# Example code blocks inside docstrings could be checked
+# disabled if you don't want this check
+disable=missing-docstring
+
