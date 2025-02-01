@@ -1,10 +1,11 @@
 import time
 import random
+from dataclasses import asdict
+import json
+import datetime
 import requests
 from bs4 import BeautifulSoup, Tag
-import json
 from item import Item
-from dataclasses import asdict
 
 user_agents = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -19,9 +20,9 @@ user_agents = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:35.0) Gecko/20100101 Firefox/35.0",
 ]
 urls_to_scrape = [
-    "https://www.czone.com.pk/laptops-pakistan-ppt.74.aspx?recs=20",
-    "https://www.czone.com.pk/graphic-cards-pakistan-ppt.154.aspx?recs=20",
-    "https://www.czone.com.pk/lcd-led-monitors-pakistan-ppt.108.aspx?recs=20",
+    "https://www.czone.com.pk/memory-module-ram-pakistan-ppt.127.aspx?recs=20",
+    "https://www.czone.com.pk/power-supply-pakistan-ppt.183.aspx?recs=20",
+    "https://www.czone.com.pk/solid-state-drives-ssd-pakistan-ppt.263.aspx?recs=20",
 ]
 
 
@@ -126,7 +127,10 @@ def delay():
 
 def write_json_file(items):
     print("--- Writing to file ---")
-    with open(f"data-{time.localtime().tm_sec}.json", "w", encoding="utf-8") as file:
+    # Use current time as the filename
+    current_time = datetime.datetime.now()
+    filename = "data-" + current_time.strftime("%H-%M-%S") + ".json"
+    with open(filename, "w", encoding="utf-8") as file:
         json.dump([asdict(i) for i in items], file, indent=4)
 
 
