@@ -1,3 +1,6 @@
 __pycache__/
-*.json
 venv/
+backup_data/
+
+*.json
+.env
